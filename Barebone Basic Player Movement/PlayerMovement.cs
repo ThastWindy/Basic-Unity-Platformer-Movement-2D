@@ -159,7 +159,8 @@ public class PlayerMovement : MonoBehaviour
         _isDashing = true;
         float originalGravity = _body.gravityScale;
         _body.gravityScale = 0f;
-        _body.linearVelocity = new Vector2(transform.localScale.x * DashingPower, 0f);
+        //_body.linearVelocity = new Vector2(transform.localScale.x * DashingPower, 0f);
+        _body.linearVelocity = new Vector2(_moveDirection * DashingPower, 0f);
         yield return new WaitForSeconds(DashingDuration);
         _body.gravityScale = originalGravity;
         _isDashing = false;
